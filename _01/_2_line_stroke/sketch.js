@@ -4,7 +4,6 @@ function setup() {
 
 	stroke(255,0,0);
 	line(0, 100, 200, 100);
-
 	
 	// strokeWeight(1);   
 	// line(20, 20, 180, 20);
