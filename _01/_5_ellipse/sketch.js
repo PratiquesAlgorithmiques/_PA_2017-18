@@ -5,10 +5,12 @@ function setup() {
 
   stroke(255, 0, 0);
   fill(0, 255, 0);
+
   ellipse(100, 100, 50, 50);
 
   stroke(0, 0, 255);
   strokeWeight(5);
   noFill();
+  
   ellipse(300, 100, 50, 50);
 }
