@@ -1,0 +1,4 @@
+cos de
+sin de
+tang de
+log de
