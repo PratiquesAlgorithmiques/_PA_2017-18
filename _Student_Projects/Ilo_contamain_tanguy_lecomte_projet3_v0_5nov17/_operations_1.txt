@@ -1,0 +1,10 @@
+plus
+moins
+fois
+par
+et
+cos
+sin
+tang
+log
+sur
