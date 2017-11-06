@@ -17,8 +17,11 @@ function draw() {
 
 
 function myfunction(test) {
-	text(test, random(width), random(height));
+  fill(random(256));
 
+  var w = textWidth(test);
+
+	text(test, random(0, width - w), random(height));
 }
 
 function keyPressed() {
@@ -121,7 +124,7 @@ function keyPressed() {
     myfunction("LOS ANGELESSSSSSSSSS");
   }
 
-     if ((key == 'w') || (key == 'W')) {
+  if ((key == 'w') || (key == 'W')) {
     myfunction("los anrelesssss");
   }
 
