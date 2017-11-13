@@ -1,5 +1,11 @@
 var material, locate, light_source, inhabitants, current_0, current_1, current_2, current_3, T;
 
+function preload() {
+	material = loadStrings('data/material.txt');
+	locate = loadStrings('data/_locate.txt');
+	light_source = loadStrings('data/_light_source.txt');
+	inhabitants = loadStrings('data/_inhabitants.txt');
+}
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
@@ -12,28 +18,28 @@ function setup() {
 	current_2 = "";
 	current_3 = "";
 	
-	loadStrings('data/material.txt', m);
-	loadStrings('_locate.txt', lieu);
-	loadStrings('_light_source.txt', l_s);
-	loadStrings('_inhabitants.txt', i);
+	// loadStrings('data/material.txt', m);
+	// loadStrings('_locate.txt', lieu);
+	// loadStrings('_light_source.txt', l_s);
+	// loadStrings('_inhabitants.txt', i);
 }
 
-function m(result_1) {
-	material = result_1;
-	print(material);
-}
+// function m(result_1) {
+// 	material = result_1;
+// 	print(material);
+// }
 
-function lieu(result_2) {
-	locate = result_2;
-}
+// function lieu(result_2) {
+// 	locate = result_2;
+// }
 
-function l_s(result_3) {
-	light_source = result_3;
-}
+// function l_s(result_3) {
+// 	light_source = result_3;
+// }
 
-function i(result_4) {
-	inhabitants = result_4;
-}
+// function i(result_4) {
+// 	inhabitants = result_4;
+// }
 
 function draw(){
 	background(174, 214, 241);

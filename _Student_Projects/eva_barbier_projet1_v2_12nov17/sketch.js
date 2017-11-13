@@ -1,7 +1,7 @@
 var mySound;
 var counter = 0;
 var soundList = ['CFT_Lite_Plucked_Arp_Em_85_BPM.wav', 'CFT_Rim_Click_Fill.wav',
-'CFT_Sub_Kick_A#m.wav', 'CFT_Big_Tambourine_Hit.wav', 'CFT_808_Tom_Riser.wav',
+'CFT_Sub_Kick_Am.wav', 'CFT_Big_Tambourine_Hit.wav', 'CFT_808_Tom_Riser.wav',
 'CFT_Cocked_Foley_FX.wav', 'CFT_Crash_Impact_01.wav', 'CFT_Foley_Snare_Roll.wav',
 'CFT_Future_Chord_Stab_Em_67_BPM.wav', 'CFT_Hat_02.wav', 'CFT_Hats_07.wav',
 'CFT_Kick_07.wav', 'CFT_Lite_Plucked_Arp_Em_85_BPM.wav', 'CFT_Old_Skool_Arp_Lead_Em_85_BPM.wav',
@@ -10,35 +10,17 @@ var soundList = ['CFT_Lite_Plucked_Arp_Em_85_BPM.wav', 'CFT_Rim_Click_Fill.wav',
 'CFT_Sub_Kick_Am.wav', 'CFT_Tape_Ride_Cymbal_72_BPM.wav', 'CFT_Tom_Tom_Fill.wav',
 'CFT_Toybell_Arp_Lead_Am_72_BPM.wav', 'CFT_Trumpet_Stab_Am_80_BPM.wav', 'CFT_Wavey_Future_Pad_Am_72_BPM.wav'];
 
+var thesounds = [];
+
 var sound1, sound2, sound3;
 
 function preload() {
-  sound1 = loadSound('sounds_p_p/CFT_Lite_Plucked_Arp_Em_85_BPM.wav');
-  sound2 = loadSound('sounds_p_p/CFT_Rim_Click_Fill.wav');
-  sound3 = loadSound('sounds_p_p/CFT_Big_Tambourine_Hit.wav');
-  sound4 = loadSound('sounds_p_p/CFT_808_Tom_Riser.wav');
-  sound5 = loadSound('sounds_p_p/CFT_Cocked_Foley_FX.wav');
-  sound6 = loadSound('sounds_p_p/CFT_Crash_Impact_01.wav');
-  sound7 = loadSound('sounds_p_p/CFT_Foley_Snare_Roll.wav');
-  sound8 = loadSound('sounds_p_p/CFT_Future_Chord_Stab_Em_67_BPM.wav');
-  sound9 = loadSound('sounds_p_p/CFT_Hat_02.wav');
-  sound10 = loadSound('sounds_p_p/CFT_Hats_07.wav');
-  sound11 = loadSound('sounds_p_p/CFT_Kick_07.wav');
-  sound12 = loadSound('sounds_p_p/CFT_Lite_Plucked_Arp_Em_85_BPM.wav');
-  sound13 = loadSound('sounds_p_p/CFT_Old_Skool_Arp_Lead_Em_85_BPM.wav');
-  sound14 = loadSound('sounds_p_p/CFT_Pitched_Pluck_Impact_Em.wav');
-  sound15 = loadSound('sounds_p_p/CFT_Pre_Snare_Sweep.wav');
-  sound16 = loadSound('sounds_p_p/CFT_Rim_Click_Fill.wav');
-  sound17 = loadSound('sounds_p_p/CFT_Snapz.wav');
-  sound18 = loadSound('sounds_p_p/CFT_Snare_03.wav');
-  sound19 = loadSound('sounds_p_p/CFT_Soft_Sub_Kick_Am.wav');
-  sound20 = loadSound('sounds_p_p/CFT_Sub_Drop.wav');
-  sound21 = loadSound('sounds_p_p/CFT_Sub_Kick_Am.wav');
-  sound22 = loadSound('sounds_p_p/CFT_Tape_Ride_Cymbal_72_BPM.wav');
-  sound23 = loadSound('sounds_p_p/CFT_Tom_Tom_Fill.wav');
-  sound24 = loadSound('sounds_p_p/CFT_Toybell_Arp_Lead_Am_72_BPM.wav');
-  sound25 = loadSound('sounds_p_p/CFT_Trumpet_Stab_Am_80_BPM.wav');
-  sound26 = loadSound('sounds_p_p/CFT_Wavey_Future_Pad_Am_72_BPM.wav');
+  // sound1 = loadSound('sounds_p_p/CFT_Lite_Plucked_Arp_Em_85_BPM.wav');
+
+  for (var i = 0; i < 26; i++) {
+    thesounds[i] = loadSound('sounds_p_p/' + soundList[i]);
+  }
+
 }
 
 
@@ -58,7 +40,7 @@ function keyPressed() {
     strokeWeight(5);
     line(random(width), random(height), random(width), random(height));
 
-    sound1.play();
+    thesounds[0].play();
   }
 
 
@@ -69,7 +51,7 @@ function keyPressed() {
 
     triangle(random(width), random(height), random(width), random(height), random(width), random(height));
 
-    sound2.play();
+    thesounds[1].play();
   }
 
 

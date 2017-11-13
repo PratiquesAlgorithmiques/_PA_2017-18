@@ -17,6 +17,7 @@ function setup() {
   's’est éloigné dans une représentation.', 
   ];
 
+  setInterval(guy, 1000);
 }
 
 function monTexte(){
@@ -45,18 +46,18 @@ function draw(){
 
   textSize(25);
   textAlign(LEFT);
-
-  setTimeout(guy, 1000);
-
 }
 
 function keyTyped() {
 
   if (key === "d") {
-    if (last_key === "r")
+    if (last_key === "r") {
       text(monArray[5], 270, 150);
-    else 
+    } else {
       text(monArray[0], 270, 20);
+    }
+
+
     textSize(40);
   }
 
