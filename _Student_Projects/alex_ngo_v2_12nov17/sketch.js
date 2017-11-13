@@ -1,6 +1,5 @@
 var steps = sessionStorage.getItem("steps");
 var step = steps.split(",");
-console.log(steps);
 var limit = step.length;
 var count = 0;
 var fps = 1;
@@ -29,9 +28,9 @@ function draw() {
 	background(0);
 	if (i < limit)
 	{
-		fill(rgby[i % 4]);
+		fill(255);
 		rect(50, 50, windowWidth - 100 , windowHeight - 100);
-		fill(0);
+		fill(rgby[i % 4]);
 		text(step[i], w, h);
 		i++;
 	}
@@ -55,33 +54,31 @@ function handleVoid() {
 }
 
 function keyPressed() {
-	if (step[i - 1])
+	var words = ["left", "straight", "right"];
+	var curr = step[i - 1];
+	console.log(keyCode);
+	if (curr)
 	{
-		if (keyCode == LEFT_ARROW)
+		console.log(curr + keyCode.toString());
+		if (keyCode == 37 || keyCode == 38 || keyCode == 39)
 		{
-			if (step[i - 1].indexOf("left") != -1)
-				count++;
+			if (curr.indexOf(words[keyCode - 37]) != -1)
+				decrease();
 			else
-				accelerate();
-		}
-		else if (keyCode == RIGHT_ARROW)
-		{
-			if (step[i - 1].indexOf("right") != -1)
-				count++;
-			else
-				accelerate();
-		}
-		else if (keyCode == 38)
-		{
-			if (step[i - 1].indexOf("straight") != -1)
-				count++;
-			else
-				accelerate();
+				increase();
 		}
 	}
 }
 
-function accelerate()
+function decrease()
+{
+	count++;
+	fps -= (fps > 1 ? 1 : 0);
+	frameRate(fps);
+	console.log(fps + ": fps.")
+}
+
+function increase()
 {
 	fps += (fps < 10 ? 1 : 0);
 	frameRate(fps);
