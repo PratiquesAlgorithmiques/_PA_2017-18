@@ -24,8 +24,7 @@ function initMap() {
 	{featureType: 'road',
 		stylers: [{color: '#000000'}]},
 	{featureType: 'road.arterial',
-		stylers: [{color: '#000000'}]},
-	{featureType: 'road.highway',
+		stylers: [{color: '#000000'}]}, {featureType: 'road.highway',
 		stylers: [{color: '#000000'}]},
 	{featureType: 'road.local',
 		stylers: [{color: '#000000'}]}],
@@ -35,10 +34,6 @@ function initMap() {
 
 	map.mapTypes.set(customMapTypeId, customMapType);
 	map.setMapTypeId(customMapTypeId);
-}
-
-function locationError() {
-	console.log("Location error.");
 }
 
 function localize() {
@@ -88,20 +83,24 @@ function calcRoute() {
 			sessionStorage.setItem("steps", maneuver);
 		} else {
 			if (status == 'ZERO_RESULTS') {
-				console.log('No route could be found between the origin and destination.');
+				alert('No route could be found between the origin and destination.');
 			} else if (status == 'UNKNOWN_ERROR') {
-				console.log('A directions request could not be processed due to a server error.');
+				alert('A directions request could not be processed due to a server error.');
 			} else if (status == 'REQUEST_DENIED') {
-				console.log('This webpage is not allowed to use the directions service.');
+				alert('This webpage is not allowed to use the directions service.');
 			} else if (status == 'OVER_QUERY_LIMIT') {
-				console.log('The webpage has gone over the requests limit in too short a period of time.');
+				alert('The webpage has gone over the requests limit in too short a period of time.');
 			} else if (status == 'NOT_FOUND') {
-				console.log('At least one of the origin, destination, or waypoints could not be geocoded.');
+				alert('At least one of the origin, destination, or waypoints could not be geocoded.');
 			} else if (status == 'INVALID_REQUEST') {
-				console.log('The DirectionsRequest provided was invalid.');					
+				alert('The DirectionsRequest provided was invalid.');					
 			} else {
-				console.log("There was an unknown error in your request. Requeststatus: \n\n"+status);
+				alert("There was an unknown error in your request. Requeststatus: \n\n"+status);
 			}
 		}
 	});
+}
+
+function locationError() {
+	console.log("Location error.");
 }
