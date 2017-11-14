@@ -1,7 +1,9 @@
-var bouton, bouton2;
+var bouton, bouton2, can;
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);
+	can = createCanvas(800, 800);
+	can.position(200, 0);
+	
 	background(100, 0, 255);
 
 	imageMode(CENTER);
@@ -14,6 +16,7 @@ function setup() {
 
 	bouton.position(10, 170);
 	bouton2.position(10, 200);
+	bouton.style("visibility", "hidden");
 
 	img_0 = loadImage("imgs/1.jpg");
 	img_2 = loadImage("imgs/2.jpg");

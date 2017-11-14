@@ -1,7 +1,10 @@
+var soundtest;
 
 // déclarer les variables
 var imageList = ["DSC_4573.JPG","DSC_4589.JPG"];
+
 var soundList1 = ['scream1.mp3','scream2.mp3','scream3.mp3','scream4.wav','scream5.wav','scream6.wav','scream7.mp3','scream8.wav','scream9.wav','scream10.mp3'];
+
 var soundList2 = ['cloche interieur.mp3','cri karate femme.mp3','cri1.mp3','cri2.mp3','decompte ko.mp3','kick1.mp3','kick2.mp3','kick3.wav','punch1.mp3','punch2.wav','punch3.wav','punch4.wav'];
 
 var mySound, myImage;
@@ -31,7 +34,8 @@ function setup() {
  
  
 function loaded(sound){
-	mySound = sound;
+	
+    mySound = sound;
 	mySound.setVolume(0.5);
 	mySound.play();
 }
@@ -50,6 +54,7 @@ function arrow(x){ // définition de la f° arrow
 	line((3872*0.3)+ 60, 25+15, (3872*0.3) + 90, 25);
 }
 
+// function draw() {}
 
 function mousePressed(){ // changer l'image lorsqu'on clique sur la zone de la flèche;
 
@@ -59,7 +64,10 @@ function mousePressed(){ // changer l'image lorsqu'on clique sur la zone de la f
 	if (mouseX >= 3872*0.3 && mouseX <= (3872*0.3)+110 && mouseY<= 50){
 		//print("conditions"); 
         loadImage(imageList[counter], display);
-        counter = counter + 1;        
+        counter = counter + 1; 
+        // if (mySound.isPlaying()) {
+        //     mySound.stop();   
+        // }    
 	}
 
 
@@ -88,51 +96,60 @@ function display(img){ // définition  de la f° display;
 	arrow(255); 
 }
 
+var pointarrayx = [872, 786, 732, 670];
+var pointarrayy = [259, 318, 356, 343];
 
 function mouseClicked(){
  if (answer === true){// il faut que je trouve un son lié au background. Une valse peut-être...
 
-	var a = dist(mouseX, mouseY,872, 259); // visages des statuettes de droite à gauche et de haut en bas!;
-    var b = dist(mouseX, mouseY,786, 318);
-    var c = dist(mouseX, mouseY,732, 356);
-    var d = dist(mouseX, mouseY,670, 343);
-    var e = dist(mouseX, mouseY,602, 340);
-    var f = dist(mouseX, mouseY,531, 346);
-    var g = dist(mouseX, mouseY,923, 510);
-    var h = dist(mouseX, mouseY,783, 497);
-    var i = dist(mouseX, mouseY,659, 484);
-    var j = dist(mouseX, mouseY,556, 540);
+    for(var z = 0; z < pointarrayx.length; z++) {
+        if (dist(mouseX, mouseY, pointarrayx[z], pointarrayy[z]) < 25) {
+            loadSound('soundList1/'+ soundList1[z], loaded);
+        }
+    }
 
-    if (a<25){
-	loadSound('soundList1/'+ soundList1[0], loaded);
-    }
-    else if (b<25){
-	loadSound('soundList1/'+ soundList1[1], loaded);
-    }
-    else if (c<25){
-	loadSound('soundList1/'+ soundList1[2], loaded);
-    } 
-    else if (d<25){
-	loadSound('soundList1/'+ soundList1[3], loaded);
-    }
-    else if (e<25){
-	loadSound('soundList1/'+ soundList1[4], loaded);
-    }
-    else if (f<25){
-	loadSound('soundList1/'+ soundList1[5], loaded);
-    }
-    else if (g<25){
-	loadSound('soundList1/'+ soundList1[6], loaded);
-    }
-    else if (h<25){
-	loadSound('soundList1/'+ soundList1[7], loaded);
-    }
-    else if (i<25){
-	loadSound('soundList1/'+ soundList1[8], loaded);
-    }
-    else if (j<25){
-	loadSound('soundList1/'+ soundList1[9], loaded);	
-	}
+
+	// var a = dist(mouseX, mouseY,872, 259); // visages des statuettes de droite à gauche et de haut en bas!;
+ //    var b = dist(mouseX, mouseY,786, 318);
+ //    var c = dist(mouseX, mouseY,732, 356);
+ //    var d = dist(mouseX, mouseY,670, 343);
+ //    var e = dist(mouseX, mouseY,602, 340);
+ //    var f = dist(mouseX, mouseY,531, 346);
+ //    var g = dist(mouseX, mouseY,923, 510);
+ //    var h = dist(mouseX, mouseY,783, 497);
+ //    var i = dist(mouseX, mouseY,659, 484);
+ //    var j = dist(mouseX, mouseY,556, 540);
+
+ //    if (a<25){
+	// loadSound('soundList1/'+ soundList1[0], loaded);
+ //    }
+ //    else if (b<25){
+	// loadSound('soundList1/'+ soundList1[1], loaded);
+ //    }
+ //    else if (c<25){
+	// loadSound('soundList1/'+ soundList1[2], loaded);
+ //    } 
+ //    else if (d<25){
+	// loadSound('soundList1/'+ soundList1[3], loaded);
+ //    }
+ //    else if (e<25){
+	// loadSound('soundList1/'+ soundList1[4], loaded);
+ //    }
+ //    else if (f<25){
+	// loadSound('soundList1/'+ soundList1[5], loaded);
+ //    }
+ //    else if (g<25){
+	// loadSound('soundList1/'+ soundList1[6], loaded);
+ //    }
+ //    else if (h<25){
+	// loadSound('soundList1/'+ soundList1[7], loaded);
+ //    }
+ //    else if (i<25){
+	// loadSound('soundList1/'+ soundList1[8], loaded);
+ //    }
+ //    else if (j<25){
+	// loadSound('soundList1/'+ soundList1[9], loaded);	
+	// }
  }
  else if (answer === false){
 	var k = dist(mouseX, mouseY,367, 112);//goddess;

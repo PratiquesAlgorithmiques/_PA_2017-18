@@ -51,12 +51,10 @@ function o3(result_1) {
 }
 
 
-
 function draw(){
 	background(174, 214, 241);
  
 	text((current_0 + " " + current_1 + " " + current_2 + " \n\ " + current_3 + " " + current_4 + " " + current_5 + " " + current_6 + " \n\ " + current_7 + " " + current_8 + " " + current_9 + " \n\ " + current_10 + " " + current_11 + " " + current_12), width/3, height/2);
-	
 }
 
 
@@ -75,3 +73,5 @@ function mousePressed() {
 	current_11 = random(operation_2);
 	current_12 = random(nombres_1);
 }
+
+
