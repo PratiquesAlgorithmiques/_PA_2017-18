@@ -79,7 +79,7 @@ function draw(){
 	text(current_12 + " \n\ " +  " \n\ " + " SANTE " + " \n\ " + " \n\ " + current_8 + " \n\ " +  current_0 + " \n\ " + current_1 + " \n\ " + " \n\ " + " TRAVAIL " + " \n\ " + " \n\ " + current_9 + " \n\ " + current_2 + " \n\ " + current_3 + " \n\ " + " \n\ " + " AMOUR " + " \n\ " + " \n\ " + current_10 + " \n\ " + current_4 + " \n\ " + current_5 + " \n\ " + " \n\ " + " POESIE " + " \n\ " + " \n\ " + current_11 + " \n\ " + current_6 + " \n\ " + current_7 , width/3, height/2);
 	
 
-	rect(50, 50, 450, 600);
+	// rect(50, 50, 450, 600);
 }
 
 
