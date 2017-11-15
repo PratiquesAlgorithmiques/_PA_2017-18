@@ -47,7 +47,7 @@ function localize() {
 					document.getElementById("From").value = results[0].formatted_address;
 					console.log(results);
 				}});
-			map.setCenter(pos);
+		map.setCenter(pos);
 		}, function() {
 			locationError();
 		});

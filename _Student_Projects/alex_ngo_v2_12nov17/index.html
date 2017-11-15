@@ -23,19 +23,6 @@
 		<input type="submit" value="Go">
 	</form>
 	<script>
-		$("#Loc").on("click", function(event) {
-			event.preventDefault();
-			html2canvas(document.body, {
-				allowTaint: true,
-				taintTest: false,
-				onrendered: function(canvas) {
-					document.body.appendChild(canvas);
-				},
-				width: 300,
-				height: 300
-			});
-		});
-
 		function validation() {
 			calcRoute();
 			var steps = sessionStorage.getItem("steps");

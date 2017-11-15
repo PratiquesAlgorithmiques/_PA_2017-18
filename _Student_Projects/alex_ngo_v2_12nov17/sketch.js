@@ -45,9 +45,7 @@ function handleVoid() {
 		text(str, w, h);
 	else
 	{
-		let s = "";
-		if (count > 1)
-			s = "s"
+		let s = (count > 1 ? "s" : "");
 		str = count.toString() + "/" + limit.toString() + " instruction" + s + ".";
 		text(str, w, h);
 	}
