@@ -1,8 +1,13 @@
-var map;
+var get = location.search.substr(1).split("&").reduce((o,i)=>(u=decodeURIComponent,[k,v]=i.split("="),o[u(k)]=v&&u(v),o),{});
+
 var maneuver = [];
 
 function initMap() {
-	var pos = new google.maps.LatLng(48.858674, 2.340878);
+	var directionsService = new google.maps.DirectionsService();
+	var pos = {
+		lat: 48.858674,
+		lng: 2.340878,
+	};
 	var opt = {
 		center: pos,
 		disableDefaultUI: true,
@@ -31,27 +36,14 @@ function initMap() {
 		stylers: [{color: '#000000'}]}],
 	{name: 'Custom Style'});
 
-	map = new google.maps.Map(document.getElementById('map'), opt);
-
-	map.mapTypes.set(customMapTypeId, customMapType);
-	map.setMapTypeId(customMapTypeId);
-}
-
-function locationError() {
-	console.log("Location error.");
-}
-
-function localize() {
-	var geocoder = new google.maps.Geocoder();
+	var map = new google.maps.Map(document.getElementById('map'), opt);
 
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
-		let pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-		geocoder.geocode({'latLng': pos}, function(results, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-					document.getElementById("From").value = results[0].formatted_address;
-					console.log(results);
-				}});
+			pos = {
+				lat: position.coords.latitude,
+				lng: position.coords.longitude
+			};
 			map.setCenter(pos);
 		}, function() {
 			locationError();
@@ -60,14 +52,18 @@ function localize() {
 	else {
 		locationError();
 	}
+	map.mapTypes.set(customMapTypeId, customMapType);
+	map.setMapTypeId(customMapTypeId);
+	calcRoute(directionsService);
 }
 
-function calcRoute() {
-	var directionsService = new google.maps.DirectionsService();
+function locationError() {
+	console.log("Location error.");
+}
 
-	var start = document.getElementById("From").value;
-	var end = document.getElementById("To").value;
-	console.log(start + "/" + end);
+function calcRoute(directionsService) {
+	var start = get.From;
+	var end = get.To;
 	var request = {
 		origin:start,
 		destination:end,
@@ -75,7 +71,6 @@ function calcRoute() {
 	};
 	directionsService.route(request, function(response, status) {
 		if (status == google.maps.DirectionsStatus.OK) {
-			console.log(response);
 			var steps = response.routes[0].legs[0].steps;
 			var j = steps.length;
 			var i = 0;
@@ -88,19 +83,19 @@ function calcRoute() {
 			sessionStorage.setItem("steps", maneuver);
 		} else {
 			if (status == 'ZERO_RESULTS') {
-				console.log('No route could be found between the origin and destination.');
+				alert('No route could be found between the origin and destination.');
 			} else if (status == 'UNKNOWN_ERROR') {
-				console.log('A directions request could not be processed due to a server error.');
+				alert('A directions request could not be processed due to a server error.');
 			} else if (status == 'REQUEST_DENIED') {
-				console.log('This webpage is not allowed to use the directions service.');
+				alert('This webpage is not allowed to use the directions service.');
 			} else if (status == 'OVER_QUERY_LIMIT') {
-				console.log('The webpage has gone over the requests limit in too short a period of time.');
+				alert('The webpage has gone over the requests limit in too short a period of time.');
 			} else if (status == 'NOT_FOUND') {
-				console.log('At least one of the origin, destination, or waypoints could not be geocoded.');
+				alert('At least one of the origin, destination, or waypoints could not be geocoded.');
 			} else if (status == 'INVALID_REQUEST') {
-				console.log('The DirectionsRequest provided was invalid.');					
+				alert('The DirectionsRequest provided was invalid.');					
 			} else {
-				console.log("There was an unknown error in your request. Requeststatus: \n\n"+status);
+				alert("There was an unknown error in your request. Requeststatus: \n\n"+status);
 			}
 		}
 	});
