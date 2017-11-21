@@ -9,9 +9,17 @@ html, body {
 }
 
 #Form {
-	position: fixed;
-	right: 0;
-	top: 50%;
-	width: 8em;
-	margin-top: -2.5em;
+	position:fixed;
+	width: 100%;
+	top: 0;
+}
+
+.form-group {
+	background-color: rgba(0,0,0,0.5);
+}
+
+.btn {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
 }
