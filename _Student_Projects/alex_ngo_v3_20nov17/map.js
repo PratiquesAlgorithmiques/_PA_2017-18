@@ -1,8 +1,9 @@
 var map;
+var pos;
 var maneuver = [];
 
 function initMap() {
-	var pos = new google.maps.LatLng(48.858674, 2.340878);
+	pos = new google.maps.LatLng(48.858674, 2.340878);
 	var opt = {
 		center: pos,
 		disableDefaultUI: true,
@@ -55,7 +56,7 @@ function localize() {
 
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
-		let pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 		geocoder.geocode({'latLng': pos}, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
 					document.getElementById("From").value = results[0].formatted_address;
@@ -114,6 +115,10 @@ function calcRoute() {
 			}
 		}
 	});
+}
+
+function random_direction() {
+	alert('random function in progress!');
 }
 
 function locationError() {
