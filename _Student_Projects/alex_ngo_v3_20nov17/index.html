@@ -20,7 +20,7 @@
 	</head>
 	<body onload="initMap()">
 	<div id="map"></div>
-	<form id="Form" action="./order.html" method="post">
+	<form id="Form" action="./order.html" method="post" onsubmit="return validation()">
 		<div class="form-group">
 		<input id="From" type="text" class="form-control" name="From" placeholder="From..." value="">
 		<input id="To" type="text" class="form-control" name="To" placeholder="To..." value="">
@@ -38,6 +38,14 @@
 		</div>
 	</form>
 	<script>
+		function validation() {
+			calcRoute();
+			var steps = sessionStorage.getItem("steps");
+			if (steps)
+				return (true);
+			else
+				return (false);
+		}
 	</script>
 	</body>
 </html>
