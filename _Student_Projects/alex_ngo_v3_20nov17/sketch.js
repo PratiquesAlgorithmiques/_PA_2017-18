@@ -1,4 +1,5 @@
 var steps = sessionStorage.getItem("steps");
+sessionStorage.removeItem("steps");
 var step = steps.split(",");
 var limit = step.length;
 var count = 0;

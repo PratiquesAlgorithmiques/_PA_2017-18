@@ -95,6 +95,7 @@ function calcRoute() {
 				i++;
 			}
 			sessionStorage.setItem("steps", maneuver);
+			window.location.href = './order.html';
 		} else {
 			if (status == 'ZERO_RESULTS') {
 				alert('No route could be found between the origin and destination.');
