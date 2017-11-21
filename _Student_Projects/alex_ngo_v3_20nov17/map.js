@@ -118,7 +118,29 @@ function calcRoute() {
 }
 
 function random_direction() {
-	alert('random function in progress!');
+	var geocoder = new google.maps.Geocoder();
+	var angle = getRandomInt(0, 360);
+
+	let start = {
+		lat: pos.lat(),
+		lng: pos.lng(),
+	}
+	let end = {
+		lat: start.lat + (0 * Math.cos(angle) - 0.05 * Math.sin(angle)),
+		lng: start.lng + (0.05 * Math.sin(angle) + 0 * Math.cos(angle)),
+	}
+	geocoder.geocode({'latLng': end}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				document.getElementById("To").value = results[0].formatted_address;
+			}
+			else {
+				alert("Random Location error.");
+			}
+	});
+}
+
+function getRandomInt(min, max) {
+	  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function locationError() {
