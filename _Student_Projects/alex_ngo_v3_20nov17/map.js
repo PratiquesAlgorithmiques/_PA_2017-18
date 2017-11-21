@@ -16,20 +16,33 @@ function initMap() {
 	{gamma: 0.5},
 	{weight: 0.5}]},
 	{featureType: 'all',
-		stylers: [{color: '#FFFFFF'}]},
+		stylers: [{color: '#f4c20d'}]},
+	{featureType: 'poi.park',
+		stylers: [{color: '#3cba54'}]},
+	{featureType: 'landscape.man_made',
+		stylers: [{color: '#db3236'}]},
+	{featureType: 'landscape.natural',
+		stylers: [{color: '#3cba54'}]},
+	{featureType: 'water',
+		stylers: [{color: '#4885ed'}]},
 	{elementType: 'labels',
 		stylers: [{visibility: 'off'}]},
 	{elementType: 'labels.icon',
 		stylers: [{visibility: 'off'}]},
 	{featureType: 'road',
-		stylers: [{color: '#db3236'}]},
+		stylers: [{color: '#000000'}]},
 	{featureType: 'road.arterial',
-		stylers: [{color: '#3cba54'}]},
+		stylers: [{color: '#000000'}]},
 	{featureType: 'road.highway',
-		stylers: [{color: '#4885ed'}]},
+		stylers: [{color: '#000000'}]},
 	{featureType: 'road.local',
-		stylers: [{color: '#f4c20d'}]}],
+		stylers: [{color: '#000000'}]}],
 	{name: 'Custom Style'});
+	
+//rgby[0] = '#db3236';
+//rgby[1] = '#3cba54';
+//rgby[2] = '#4885ed';
+//rgby[3] = '#f4c20d';
 
 	map = new google.maps.Map(document.getElementById('map'), opt);
 
