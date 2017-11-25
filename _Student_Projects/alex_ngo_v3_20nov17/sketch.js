@@ -1,5 +1,5 @@
 var steps = sessionStorage.getItem("steps");
-var bell;
+//var bell;
 sessionStorage.removeItem("steps");
 var step = steps.split(",");
 var limit = step.length;
@@ -17,7 +17,7 @@ rgby[2] = '#4885ed';
 rgby[3] = '#f4c20d';
 
 function setup() {
-	bell = loadSound('mp3/bellc.mp3');
+//	bell = loadSound('mp3/bellc.mp3');
 	w = windowWidth / 2;
 	h = windowHeight / 2;
 	createCanvas(windowWidth, windowHeight);
@@ -31,7 +31,7 @@ function draw() {
 	background(0);
 	if (i < limit)
 	{
-		bell.play();
+//		bell.play();
 		fill(255);
 		rect(50, 50, windowWidth - 100 , windowHeight - 100);
 		fill(rgby[i % 4]);
