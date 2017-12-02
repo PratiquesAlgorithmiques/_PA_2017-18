@@ -40,7 +40,7 @@ function initMap() {
 		stylers: [{color: '#000000'}]}],
 	{name: 'Custom Style'});
 
-//rgby[0] = '#db3236';Bonjour
+//rgby[0] = '#db3236';Bonjourbonsoir
 //rgby[1] = '#3cba54';
 //rgby[2] = '#4885ed';
 //rgby[3] = '#f4c20d';
