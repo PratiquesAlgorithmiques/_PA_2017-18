@@ -39,8 +39,8 @@ function initMap() {
 	{featureType: 'road.local',
 		stylers: [{color: '#000000'}]}],
 	{name: 'Custom Style'});
-	
-//rgby[0] = '#db3236';
+
+//rgby[0] = '#db3236';Bonjour
 //rgby[1] = '#3cba54';
 //rgby[2] = '#4885ed';
 //rgby[3] = '#f4c20d';
@@ -109,7 +109,7 @@ function calcRoute() {
 			} else if (status == 'NOT_FOUND') {
 				alert('At least one of the origin, destination, or waypoints could not be geocoded.');
 			} else if (status == 'INVALID_REQUEST') {
-				alert('The DirectionsRequest provided was invalid.');					
+				alert('The DirectionsRequest provided was invalid.');
 			} else {
 				alert("There was an unknown error in your request. Requeststatus: \n\n"+status);
 			}
