@@ -17,7 +17,7 @@ rgby[2] = '#4885ed';
 rgby[3] = '#f4c20d';
 
 function setup() {
-//	bell = loadSound('mp3/bellc.mp3');
+//	bell = loadSound('mp3/bellc.mp3')bonjour bonoir
 	w = windowWidth / 2;
 	h = windowHeight / 2;
 	createCanvas(windowWidth, windowHeight);
