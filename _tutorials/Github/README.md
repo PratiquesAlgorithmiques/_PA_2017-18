@@ -43,7 +43,7 @@ Il ne faut donc pas faire n'importe quoi avec et ne surtout pas recopier une com
 
   * **ls** : pour *LiSt*. Utlisé sans option, elle permet de lister les fichiers et les dossiers à l'endroit où l'on se trouve. Avec l'option -a, les fichiers "cachés" sont aussi listé.
 
-  * **cd** : *Change Directory*. Une fois que nous avons les outils pour se repérer dans l'architecture du systeme, nous pouvons nous déplacer ! **cd** nous amène vers le dossier indiqué en paramètre. **"cd .."** pour aller en arrière (".." signifie dossier précédent et "." dossier actuel) et un **"cd"** tout simple pour revenir au *"home"*, le point de depart. 
+  * **cd** : *Change Directory*. Une fois que nous avons les outils pour se repérer dans l'architecture du systeme, nous pouvons nous déplacer ! **cd** nous amène vers le dossier indiqué en paramètre. **"cd .."** pour aller en arrière (".." signifie dossier précédent et "." dossier actuel) et un **"cd"** tout simple pour revenir au *"home"*, le point de depart. 
 
 <img src="https://www.pcsuggest.com/wp-content/uploads/2017/08/cd_command_example.png" width="500px">
 
@@ -55,13 +55,33 @@ Voilà pour les commandes de base. \(^-^)/
 
 ## Git tout simplement !
 
-Je parlerai ici des commandes pour une utilisation très basique de **Git**. Une utilisation avec une seule branche : la branche "master" en local, c'est à dire sur votre machine.
+Je parlerai ici des commandes pour une utilisation très basique de **Git**. Une utilisation avec une seule branche : la branche "master" en local, c'est à dire sur votre machine. Nous pouvons retrouver ses commandes sur sublime Text, elles font plus ou moins la même chose avec plus ou moins de souplesse.
 
-  * **git init** : Initialise un dépot git. Ceci est a faire dans le dossier que vous voulez transformer en dépot.
+ * **git init** : Initialise un dépot git. Cette commande est a entrer dans le dossier que vous voulez transformer en dépot.
   
-  * **git init** : Initialise un dépot git. Ceci est a faire dans le dossier que vous voulez transformer en dé
-  
-  * **git status** : Permet d'avoir un aperçu l'état du dépot. 
+ * **git status** : Permet d'avoir un aperçu l'état du dépot.
+   * *Les fichiers "untracked"* ne sont pas recensé dans le depot git. Ce dernier n'a donc aucune idée de ce qu'ils sont et ne possède pas d'historique pour ces derniers.
+   * *Les fichiers "modified"* sont les fichiers recensés et modifiés entre le dernier "snapshot" et l'état actuel du dépot.
+   
+ <img src="./img/git_status.png" width="500px">
+   
+ * **git add** : Permet d'ajouter des *untracked* ou des *modified* sur le stage, c'est... comme prendre des enfants de maternel et les installer sur les bancs pour faire une photo de classe. Nous pouvons dire que les fichiers prennent la pose.
+ 
+ * **git commit** : cette commande permet de faire la photo. Elle est à utiliser l'argument -m comme ceci :
+ > **git commit -m "message blablabla"**.
+ 
+ Le message entre guillemet accompagnera le commit toute sa vie ( ou presque :D ). Il est conseillé de faire des messages explicites.
+ 
+  * **git log** : Affiche l'historique de tous les commits qu'il y a eu. Cette commande est très utile lorsque nous voulons revenir en arrière. (Pour en sortir, il faut appuyer sur la touche "q").
   
-  * **git add** : 
+## Bientôt GitHub !
 
+Bientôt dans les nuages (git remote add, git pull, git push, git fetch, les forks et les pull request). 
+
+## Plusieurs versions, plusieurs branches
+
+La fin des v1, v2, v3 même si c'est moins ludique. (git checkout, git branch, git merge..)
+
+## Bonus : les sous-modules
+
+Pour aller vraiment partout (git submodule.)
