@@ -1,13 +1,9 @@
-var get = location.search.substr(1).split("&").reduce((o,i)=>(u=decodeURIComponent,[k,v]=i.split("="),o[u(k)]=v&&u(v),o),{});
-
+var map;
+var pos;
 var maneuver = [];
 
 function initMap() {
-	var directionsService = new google.maps.DirectionsService();
-	var pos = {
-		lat: 48.858674,
-		lng: 2.340878,
-	};
+	pos = new google.maps.LatLng(48.858674, 2.340878);
 	var opt = {
 		center: pos,
 		disableDefaultUI: true,
@@ -21,7 +17,15 @@ function initMap() {
 	{gamma: 0.5},
 	{weight: 0.5}]},
 	{featureType: 'all',
-		stylers: [{color: '#FFFFFF'}]},
+		stylers: [{color: '#f4c20d'}]},
+	{featureType: 'poi.park',
+		stylers: [{color: '#3cba54'}]},
+	{featureType: 'landscape.man_made',
+		stylers: [{color: '#db3236'}]},
+	{featureType: 'landscape.natural',
+		stylers: [{color: '#3cba54'}]},
+	{featureType: 'water',
+		stylers: [{color: '#4885ed'}]},
 	{elementType: 'labels',
 		stylers: [{visibility: 'off'}]},
 	{elementType: 'labels.icon',
@@ -36,15 +40,29 @@ function initMap() {
 		stylers: [{color: '#000000'}]}],
 	{name: 'Custom Style'});
 
-	var map = new google.maps.Map(document.getElementById('map'), opt);
+//rgby[0] = '#db3236';Bonjourbonsoir
+//rgby[1] = '#3cba54';
+//rgby[2] = '#4885ed';
+//rgby[3] = '#f4c20d';
+
+	map = new google.maps.Map(document.getElementById('map'), opt);
+
+	map.mapTypes.set(customMapTypeId, customMapType);
+	map.setMapTypeId(customMapTypeId);
+}
+
+function localize() {
+	var geocoder = new google.maps.Geocoder();
 
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
-			pos = {
-				lat: position.coords.latitude,
-				lng: position.coords.longitude
-			};
-			map.setCenter(pos);
+		pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		geocoder.geocode({'latLng': pos}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					document.getElementById("From").value = results[0].formatted_address;
+					console.log(results);
+				}});
+		map.setCenter(pos);
 		}, function() {
 			locationError();
 		});
@@ -52,18 +70,14 @@ function initMap() {
 	else {
 		locationError();
 	}
-	map.mapTypes.set(customMapTypeId, customMapType);
-	map.setMapTypeId(customMapTypeId);
-	calcRoute(directionsService);
 }
 
-function locationError() {
-	console.log("Location error.");
-}
+function calcRoute() {
+	var directionsService = new google.maps.DirectionsService();
 
-function calcRoute(directionsService) {
-	var start = get.From;
-	var end = get.To;
+	var start = document.getElementById("From").value;
+	var end = document.getElementById("To").value;
+	console.log(start + "/" + end);
 	var request = {
 		origin:start,
 		destination:end,
@@ -71,6 +85,7 @@ function calcRoute(directionsService) {
 	};
 	directionsService.route(request, function(response, status) {
 		if (status == google.maps.DirectionsStatus.OK) {
+			console.log(response);
 			var steps = response.routes[0].legs[0].steps;
 			var j = steps.length;
 			var i = 0;
@@ -81,6 +96,7 @@ function calcRoute(directionsService) {
 				i++;
 			}
 			sessionStorage.setItem("steps", maneuver);
+			window.location.href = './order.html';
 		} else {
 			if (status == 'ZERO_RESULTS') {
 				alert('No route could be found between the origin and destination.');
@@ -93,10 +109,40 @@ function calcRoute(directionsService) {
 			} else if (status == 'NOT_FOUND') {
 				alert('At least one of the origin, destination, or waypoints could not be geocoded.');
 			} else if (status == 'INVALID_REQUEST') {
-				alert('The DirectionsRequest provided was invalid.');					
+				alert('The DirectionsRequest provided was invalid.');
 			} else {
 				alert("There was an unknown error in your request. Requeststatus: \n\n"+status);
 			}
 		}
 	});
+}
+
+function random_direction() {
+	var geocoder = new google.maps.Geocoder();
+	var angle = getRandomInt(0, 360);
+
+	let start = {
+		lat: pos.lat(),
+		lng: pos.lng(),
+	}
+	let end = {
+		lat: start.lat + (0 * Math.cos(angle) - 0.05 * Math.sin(angle)),
+		lng: start.lng + (0.05 * Math.sin(angle) + 0 * Math.cos(angle)),
+	}
+	geocoder.geocode({'latLng': end}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				document.getElementById("To").value = results[0].formatted_address;
+			}
+			else {
+				alert("Random Location error.");
+			}
+	});
+}
+
+function getRandomInt(min, max) {
+	  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function locationError() {
+	console.log("Location error.");
 }

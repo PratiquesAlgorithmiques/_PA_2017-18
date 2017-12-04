@@ -1,4 +1,3 @@
-
 var x;
 var img
 var images
