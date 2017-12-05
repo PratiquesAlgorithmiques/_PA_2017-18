@@ -14,7 +14,7 @@ Dans le cadre de Pratique Algorithmique, nous utilisons **Github**. Un "**[repos
 
 Un **repository** (surnommé **"Repo"**) est une zone de stockage réservée sur les serveurs de **Github**.
 
-Nous avons donc d’une part un logiciel et d’autre part une plateforme de partage.
+Nous avons donc d’une part un logiciel et d’autre part une plateforme de stockage.
 
 Pour les utilisateurs de windows, je conseille d'installer **[git bash](https://git-for-windows.github.io/)**.
 Cela permet de partager un vocabulaire commun (entre mac et pc), si nous utilisons la console.
@@ -61,7 +61,8 @@ Je parlerai ici des commandes pour une utilisation très basique de **Git**. Une
   
  * **git status** : Permet d'avoir un aperçu l'état du dépot.
    * *Les fichiers "untracked"* ne sont pas recensé dans le depot git. Ce dernier n'a donc aucune idée de ce qu'ils sont et ne possède pas d'historique pour ces derniers.
-   * *Les fichiers "modified"* sont les fichiers recensés et modifiés entre le dernier "commit" (une photo) et l'état actuel non sauvagardé du dépot.
+   
+   * *Les fichiers "modified"* sont les fichiers recensés et modifiés entre le dernier "commit" (une photo) et l'état actuel non sauvagardé du dépot.
    
  <img src="./img/git_status.png" width="500px">
    
@@ -76,7 +77,7 @@ Je parlerai ici des commandes pour une utilisation très basique de **Git**. Une
   * **git log** : Affiche l'historique de tous les commits qu'il y a eu. Cette commande est très utile lorsque nous voulons revenir en arrière. (Pour en sortir, il faut appuyer sur la touche "q").
   
 ```
-La routine habituelle :
+La routine d'initialisation habituelle :
 
 -> Ouvrir votre console préférée (terminal, iterm, git bash, powershell...).
 -> Aller dans le dossier avec 'cd' ou bien glisser/deposer le dossier dans la fenêtre de la console.
@@ -87,18 +88,88 @@ La routine habituelle :
 
 Vous pouvez faire un 'git status' entre chaque étape. et un 'git log' a la fin.
 
+
+La routine d'usage :
+
+-> Effectuer des modifications, des ajouts et des changement dans le code jusqu'à satisfaction.
+-> git add les fichiers modifiés.
+-> git commit -m "message du commit".
+
+and again and again..
 ```
   
 ## GitHub !
 
+### Un repositery indépendant.
 
+Maintenant que nous avons vu l'usage en local, nous allons voir comment réserver un espace sur github et les commandes pour l'associer à notre dépot (le dossier géré par git). Pour cela, il suffit de créer un nouveau repo sur Github, à l'aide de *"new repository"*.
 
-Bientôt dans les nuages (git remote add, git pull, git push, git fetch, les forks et les pull request). 
+<img src="./img/newrepo.png" width="500px">
 
+Il faut ensuite lui donner un nom.
+
+Le fichier README est un fichier texte dans lequel nous pouvons mettre ce que l'on souhaite. Il est souvent utilise pour présenter le projet.
+
+.gitignore permet de générer un fichier .gitignore. Celui çi va permettre d'ignorer certain type de fichier au moment de la commande **git add**.
+
+Et vous pouvez ajouter une license si vous le souhaitez
+
+<img src="./new.png" width="500px">
+
+Une fois ceci fait, il faut récupérer l'url du dépot. Et nous allons maintenant parler des commandes.
+
+<img src="./url.png" width="500px">
+
+  * **git remote add origin [votre-url]** : permet de crée le lien entre votre dossier et le repository. **origin** est très important, c'est le mot clef pour désigner l'adresse/url principale, elle est comprise par git.
+  
+    * **git remote -v** vous montre les liens que vous avez crée. ("-v" pour *verbose*).
+    
+    * *(fetch)* c'est la référence.
+    
+    * *(push)* c'est là ou il vas "pousser" les elements dans les nuages.
+    
+ <img src="./img/remote.png" width="500px">
+
+  * **git pull** : Tirer ! Si vous avez initialisé votre repo avec un readme ou n'importe quel fichier, il va falloir pull pour vous mettre à jour. Lors du premier pull, il faut lui indiquer le chemin lors du premier pull, de toute façon git vous le dira et vous orientera vers des solutions.
+
+```
+git pull origin master
+```
+
+  * **git push** : Pousser ! Comme pour le pull, il faut indiquer le chemin.
+  
+```
+git push --set-upstream origin master
+```
+
+```
+La routine d'usage + push :
+
+après un commit:
+-> git push 
+
+```
+
+### Fork et Pull request.
+
+  * **git remote add upstream [url]**
+
+  * **git fetch upstream**
+  
+  * **git merge upstream/master**
+  
+  * **git pull upstream**
+
+  * Effectuer une pull request - Gestion des conflits.
+  
 ## Plusieurs versions, plusieurs branches
 
-La fin des v1, v2, v3 même si c'est moins ludique. (git checkout, git branch, git merge..)
+  * **git branch**
+  
+  * **git checkout**
 
 ## Bonus : les sous-modules
 
-Pour aller vraiment partout (git submodule.)
+  * **git submodule add [url]
+  
+## Conclusion.
