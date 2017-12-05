@@ -122,11 +122,11 @@ Une fois ceci fait, il faut récupérer l'url du dépot. Et nous allons maintena
 
   * **git remote add origin [votre-url]** : permet de crée le lien entre votre dossier et le repository. **origin** est très important, c'est le mot clef pour désigner l'adresse/url principale, elle est comprise par git.
   
-    * **git remote -v** vous montre les liens que vous avez crée. ("-v" pour *verbose*).
+    * -> **git remote -v** vous montre les liens que vous avez crée. ("-v" pour *verbose*).
     
-    * *(fetch)* c'est la référence.
+      * *(fetch)* c'est la référence.
     
-    * *(push)* c'est là ou il vas "pousser" les elements dans les nuages.
+      * *(push)* c'est là ou il vas "pousser" les elements dans les nuages.
     
  <img src="./img/remote.png" width="500px">
 
@@ -136,7 +136,7 @@ Une fois ceci fait, il faut récupérer l'url du dépot. Et nous allons maintena
 git pull origin master
 ```
 
-  * **git push** : Pousser ! Comme pour le pull, il faut indiquer le chemin.
+  * **git push** : Pousser ! Comme pour le pull, il faut indiquer le chemin la première fois. Git va ensuite pousser vos modifications sur le serveur.
   
 ```
 git push --set-upstream origin master
@@ -146,22 +146,65 @@ git push --set-upstream origin master
 La routine d'usage + push :
 
 après un commit:
--> git push 
+-> git push (de temps en temps, souvent à la fin de la journée ;).
 
 ```
 
 ### Fork et Pull request.
 
-  * **git remote add upstream [url]**
+Pour ceux qui veulent travailler sur le repo _PA_2017-18 directement. Il faut savoir que ce tutoriel est très basique.
 
-  * **git fetch upstream**
-  
-  * **git merge upstream/master**
-  
-  * **git pull upstream**
+**"fork"**, c'est faire dériver le repo original vers un repo qui est nous est propre et que nous pourrons modifier à notre guise. Pour cela, rendez-vous sur [_PA_2017-18](https://github.com/PratiquesAlgorithmiques/_PA_2017-18) et cliquer sur le bouton *"fork"*.
 
-  * Effectuer une pull request - Gestion des conflits.
+<img src="https://help.github.com/assets/images/help/repository/fork_button.jpg" width="500px">
+
+  * **git clone** : Elle est une commande très utile ! Elle permet de récuperer une copie exact d'un repository, plus besoin de passer par un .zip. Dans notre cas, nous cherchons à récuperer votre url fork (elle est reconnaissable car elle contient votre login), puis faire un git clone de celui ci à l'endroit où vous le souhaitez en ajoutant un nom de dossier si necessaire.
   
+<img src="./img/clone.png" width="500px">
+  
+  * **git remote add upstream [url]** : De base, il n'y a qu'une adresse lié au dépot. Il n'a donc aucune idee des changememts effectué dans l'original. Grâce à cette commande et aux commandes suivante, vous aller pouvoir suivre et mettre à jour votre dépot. Elle ajoute un lien entre le dépot et le repo de Jeff. "upstream" est une habitude personelle, vous pouvez l'appeler comme bon vous semble.
+  
+<img src="./img/upstream.png" width="500px">
+
+  * **git fetch upstream** : Recupere les données de upstream (implicitement, il va chercher des données dans le repo indiqué)
+  
+  * **git merge upstream/master** : Fusionne upstream dans le master, les fichiers fusionnent et se mettent à jours. Cela engendre parfois des "conflits" de version.
+  
+  * **git pull upstream master** : une autre façon de "fetch et de merge".
+
+##### Effectuer une pull request.
+
+Une fois vos modifications faites et satisfaite il vous faut **push**.
+Ensuite, rendez-vous sur votre page et appuyer sur le button
+
+<img src="https://drupal.gatech.edu/sites/default/files/inline-images/fork7.jpg" width="500px">
+
+Vous pouvez voir différente option et si tout vas bien, une petit coche verte apparaitra. Il faut ensuite appuyer sur create pull-request. Vous pouvez écrire un petit message explicatif :)
+
+<img src="./img/request.png" width="500px">
+
+D'un coté et de l'autre, il y a la possibilié de modifier les fichiers. Cependant, il faut une communication entre le master le l'initiateur de la pull request c'est pourquoi une sorte de petit forum existe pour se décider.
+
+### Gestion des conflits.
+
+Les conflits naissent lorsqu'il y a une difference dans un meme fichier et que l'on souhaite les fusionner.
+
+Nous aurons alors ceci :
+
+```
+<<<< HEAD Début du conflit
+
+Code précédant la fusion
+
+========== 
+
+Code provenant de la fusion
+
+>>>>> Fin
+```
+
+Pour le résoudre, il faut effacer la partie que l'on ne souhaite pas garder et commit le changement.
+    
 ## Plusieurs versions, plusieurs branches
 
   * **git branch**
