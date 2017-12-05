@@ -114,11 +114,11 @@ Le fichier README est un fichier texte dans lequel nous pouvons mettre ce que l'
 
 Et vous pouvez ajouter une license si vous le souhaitez
 
-<img src="./new.png" width="500px">
+<img src="./img/new.png" width="500px">
 
 Une fois ceci fait, il faut récupérer l'url du dépot. Et nous allons maintenant parler des commandes.
 
-<img src="./url.png" width="500px">
+<img src="./img/url.png" width="500px">
 
   * **git remote add origin [votre-url]** : permet de crée le lien entre votre dossier et le repository. **origin** est très important, c'est le mot clef pour désigner l'adresse/url principale, elle est comprise par git.
   
