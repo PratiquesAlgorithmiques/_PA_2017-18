@@ -4,9 +4,9 @@
 
 Bonjour !
 
-Je vais expliciter ici, les commandes et ce qui s'est passé durant le cours précédent. J'espère que vous comprendrez mieux, et je suis à votre disposition pour toutes vos questions :D
+Je vais expliciter ici, les commandes et ce qu'il s'est passé durant le cours précédent. J'espère que vous comprendrez mieux, et je suis à votre disposition pour toutes vos questions :D
 
-  * **[Git](https://git-scm.com/)** est un _logiciel de gestion de version de fichier_. Il garde en mémoire l’ensemble des ajouts/retrait apportées à un ou plusieurs fichiers. La nature open-source et la légèreté d’utilisation de ce logiciel le rend très populaire dans le milieu du développement. Dans la pratique, ce logiciel permet d’éviter les duplicatas, de retrouver des anciennes versions. En gros, c’est de l’organisation potentielle.
+  * **[Git](https://git-scm.com/)** est un _logiciel de gestion de version de fichier_. Il garde en mémoire l’ensemble des ajouts/retraits apportés à un ou plusieurs fichiers. La nature open-source et la légèreté d’utilisation de ce logiciel le rend très populaire dans le milieu du développement. Dans la pratique, ce logiciel permet d’éviter les duplicatas, de retrouver des anciennes versions. En gros, c’est de l’organisation potentielle.
 
   * **[GitHub](https://github.com/)** est une plateforme en ligne proposant un _service de stockage_. Son interface et ses restrictions sont basées sur “git”. Comme pour les ICloud, dropBox, GoogleDrive, il existe plusieurs plateforme de ce genre, par exemple Gitlab, Gitbucket... Une porte ouverte à la collaboration, à l’indépendance vis à vis du poste de travail.
 
@@ -43,7 +43,7 @@ Il ne faut donc pas faire n'importe quoi avec et ne surtout pas recopier une com
 
   * **ls** : pour *LiSt*. Utlisé sans option, elle permet de lister les fichiers et les dossiers à l'endroit où l'on se trouve. Avec l'option -a, les fichiers "cachés" sont aussi listé.
 
-  * **cd** : *Change Directory*. Une fois que nous avons les outils pour se repérer dans l'architecture du systeme, nous pouvons nous déplacer ! **cd** nous amène vers le dossier indiqué en argument. **"cd .."** pour aller en arrière (".." signifie dossier précédent et "." dossier actuel) et un **"cd"** tout simple pour revenir au *"home"*, le point de depart. 
+  * **cd** : *Change Directory*. Une fois que nous avons les outils pour se repérer dans l'architecture du systeme, nous pouvons nous déplacer ! **cd** nous amène vers le dossier indiqué en argument. **"cd .."** pour aller en arrière (".." signifie *dossier précédent* et "." *dossier actuel*) et un **"cd"** tout simple pour revenir au *"home"*, le point de depart. 
 
 <img src="https://www.pcsuggest.com/wp-content/uploads/2017/08/cd_command_example.png" width="500px">
 
@@ -57,7 +57,7 @@ Voilà pour les commandes de base. \(^-^)/
 
 Je parlerai ici des commandes pour une utilisation très basique de **Git**. Une utilisation avec une seule branche : la branche "master" en local, c'est à dire sur votre machine. Nous pouvons retrouver ses commandes sur sublime Text, elles font plus ou moins la même chose avec plus ou moins de souplesse.
 
- * **git init** : Initialise un dépot git, transforme un dossier normal en un dossier gérer par le gestionnaire de version git. un ".git" va se greffer dans le dossier. Cette commande est a entrer dans le dossier que vous voulez transformer en dépot.
+ * **git init** : Initialise un dépot git, transforme un dossier normal en un dossier géré par le gestionnaire de version git. un ".git" va se greffer dans le dossier. Cette commande est a entrer dans le dossier que vous voulez transformer en dépot.
   
  * **git status** : Permet d'avoir un aperçu l'état du dépot.
    * *Les fichiers "untracked"* ne sont pas recensé dans le depot git. Ce dernier n'a donc aucune idée de ce qu'ils sont et ne possède pas d'historique pour ces derniers.
@@ -95,7 +95,7 @@ La routine d'usage :
 -> git add les fichiers modifiés.
 -> git commit -m "message du commit".
 
-and again and again..
+and again, and again..
 ```
   
 ## GitHub !
