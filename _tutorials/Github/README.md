@@ -1,6 +1,22 @@
 <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" height="100px">
 
-# Git, c'est magique !
+# Sommaire
+1. [Introduction](#introduction)
+2. [La console](#console)
+  1. [Commande de la console](#cmdconsole)
+3. [Git de base](#basique)
+  1. [Routine git](#routine)
+4. [Github](#github)
+  1. [Independant](#inde)
+  2. [Fork](#fork)
+    1. [Pull request](#pullrequest)
+  3. [Gestion de conflit](#conflit)
+5. [Branche](#branche)
+6. [Sous-module](#submodule)
+7. [Conclusion](#conclusion)
+
+
+# Git, c'est magique ! <a name="introduction"></a>
 
 Bonjour !
 
@@ -17,14 +33,12 @@ Un **repository** (surnommé **"Repo"**) est une zone de stockage réservée sur
 Nous avons donc d’une part un logiciel et d’autre part une plateforme de stockage.
 
 Pour les utilisateurs de windows, je conseille d'installer **[git bash](https://git-for-windows.github.io/)**.
-Cela permet de partager un vocabulaire commun (entre mac et pc), si nous utilisons la console.
+Cela permet de partager un vocabulaire commun entre mac et pc si vous utilisez la console.
 
-## La console...
+## La console... <a name="console"></a>
 
   >...c'est une grosse boite dans laquelle tu peux entrer des formules magiques permettant d'effectuer des actions.
-  
-  >...c'est un programme très basique et très proche du système.
-  
+
   >...une boite de texte ou tu peux entrer des commandes qui affichent ses résultats uniquement en texte.
   
   >...C'est une façon de parler à l'ordinateur pour lui demander d'effectuer des actions.
@@ -33,11 +47,11 @@ De base, elle ressemble à ça :
 
 <img src="http://static5.businessinsider.com/image/56fc286452bcd024008b9bdf-562-422/bash_screenshot.png" width="500px">
 
-Et elle est très puissante !
+Elle est proche du système et elle est très puissante !
 
 Il ne faut donc pas faire n'importe quoi avec et ne surtout pas recopier une commande trouvé sur internet sans la comprendre. Méfiez-vous des facétieux et surtout de la commande **rm** (pour *ReMove*, elle supprime définitivement ce qu'on lui passe en argument sans passer par la corbeille (0_0))!
 
-## Petit lexique des formules magiques du terminal :
+## Petit lexique des formules magiques du terminal : <a name="cmdconsole"></a>
 
   * **pwd** : signifie *Print Working Directory*. Elle indique l'endroit où l'on se trouve dans l'architecture de dossier. Elle est très utile pour se repérer.
 
@@ -51,33 +65,35 @@ Pour toutes les commandes, il y a un manuel. Il suffit de taper **man** avant la
 
 (Et puis pour entrer une commande, il suffit de l'écrire et d'appuyer sur la touche "entrée".)
 
-Voilà pour les commandes de base. \(^-^)/
+Voilà pour les commandes de base. \\(^-^)/
 
-## Git tout simplement !
+## Git tout simplement ! <a name="basique"></a>
 
 Je parlerai ici des commandes pour une utilisation très basique de **Git**. Une utilisation avec une seule branche : la branche "master" en local, c'est à dire sur votre machine. Nous pouvons retrouver ses commandes sur sublime Text, elles font plus ou moins la même chose avec plus ou moins de souplesse.
 
  * **git init** : Initialise un dépot git, transforme un dossier normal en un dossier géré par le gestionnaire de version git. un ".git" va se greffer dans le dossier. Cette commande est a entrer dans le dossier que vous voulez transformer en dépot.
   
  * **git status** : Permet d'avoir un aperçu l'état du dépot.
+   
    * *Les fichiers "untracked"* ne sont pas recensé dans le depot git. Ce dernier n'a donc aucune idée de ce qu'ils sont et ne possède pas d'historique pour ces derniers.
    
    * *Les fichiers "modified"* sont les fichiers recensés et modifiés entre le dernier "commit" (une photo) et l'état actuel non sauvagardé du dépot.
    
  <img src="./img/git_status.png" width="500px">
    
- * **git add** : Permet d'ajouter des *untracked* ou des *modified* sur le stage, c'est... comme prendre des objets et les installer sur une table pour faire une photo. Nous pouvons dire que les fichiers prennent la pose.
+ * **git add** : Permet d'ajouter des *untracked* ou des *modified* sur le stage, c'est... comme prendre des objets et les installer sur une table dans le but de faire une photo. Nous pouvons dire que les fichiers prennent la pose.
  
- * **git commit** : cette commande permet de faire la photo. C'est à dire enregistrer l'état actuel du dépot. Elle est à utiliser l'argument -m comme ceci :
+ * **git commit** : cette commande permet de faire la photo. Elle enregistre l'état actuel du dépot sous la forme d'un "commit". Elle est à utiliser l'argument -m comme ceci :
  ```
  git commit -m "message blablabla"
  ```
- Le message entre guillemet accompagnera le commit toute sa vie ( ou presque :D ). Il est conseillé de faire des messages explicites.
- 
-  * **git log** : Affiche l'historique de tous les commits qu'il y a eu. Cette commande est très utile lorsque nous voulons revenir en arrière. (Pour en sortir, il faut appuyer sur la touche "q").
+ Le message entre guillemet accompagnera le commit toute sa vie ( ou presque :D ). Il est conseillé de faire des messages explicites. (ou pas)
+
+  * **git log** : Affiche l'historique de tous les commits qu'il y a eu. Cette commande est très utile lorsque nous voulons revenir en arrière. (Pour en sortir, il faut appuyer sur la touche "q").
   
+  <a name="routine"></a>
 ```
-La routine d'initialisation habituelle :
+La routine d'initialisation :
 
 -> Ouvrir votre console préférée (terminal, iterm, git bash, powershell...).
 -> Aller dans le dossier avec 'cd' ou bien glisser/deposer le dossier dans la fenêtre de la console.
@@ -95,12 +111,11 @@ La routine d'usage :
 -> git add les fichiers modifiés.
 -> git commit -m "message du commit".
 
-and again, and again..
 ```
   
-## GitHub !
+## GitHub ! <a name="github"></a>
 
-### Un repositery indépendant.
+### Un repositery indépendant. <a name="inde"></a>
 
 Maintenant que nous avons vu l'usage en local, nous allons voir comment réserver un espace sur github et les commandes pour l'associer à notre dépot (le dossier géré par git). Pour cela, il suffit de créer un nouveau repo sur Github, à l'aide de *"new repository"*.
 
@@ -108,7 +123,7 @@ Maintenant que nous avons vu l'usage en local, nous allons voir comment réserve
 
 Il faut ensuite lui donner un nom.
 
-Le fichier README est un fichier texte dans lequel nous pouvons mettre ce que l'on souhaite. Il est souvent utilise pour présenter le projet.
+Le fichier README est un fichier texte dans lequel nous pouvons mettre ce que l'on souhaite. Il est souvent utilisé pour présenter le projet.
 
 .gitignore permet de générer un fichier .gitignore. Celui çi va permettre d'ignorer certain type de fichier au moment de la commande **git add**.
 
@@ -120,23 +135,20 @@ Une fois ceci fait, il faut récupérer l'url du dépot. Et nous allons maintena
 
 <img src="./img/url.png" width="500px">
 
-  * **git remote add origin [votre-url]** : permet de crée le lien entre votre dossier et le repository. **origin** est très important, c'est le mot clef pour désigner l'adresse/url principale, elle est comprise par git.
-  
-    * -> **git remote -v** vous montre les liens que vous avez crée. ("-v" pour *verbose*).
-    
-      * *(fetch)* c'est la référence.
-    
-      * *(push)* c'est là ou il vas "pousser" les elements dans les nuages.
+  * **git remote add origin [votre-url]** : permet de crée le lien entre votre dossier et le repository. **origin** est très important, c'est le mot clef pour désigner l'adresse/url principale, elle est comprise par git.
+    * -> **git remote -v** vous montre les liens que vous avez crée. ("-v" pour *verbose*).
+      * *(fetch)* c'est l'adresse  git va chercher les données.
+
+      * *(push)* c'est l'adresse sur laquelle git vas "pousser" les élements.
     
  <img src="./img/remote.png" width="500px">
 
-  * **git pull** : Tirer ! Si vous avez initialisé votre repo avec un readme ou n'importe quel fichier, il va falloir pull pour vous mettre à jour. Lors du premier pull, il faut lui indiquer le chemin lors du premier pull, de toute façon git vous le dira et vous orientera vers des solutions.
-
+  * **git pull** : Tirer ! Si vous avez initialisé votre repo avec un readme ou n'importe quel autre fichier, il va falloir pull pour vous mettre à jour. Git pull c'est la fusion de git fetch et de git merge.
+  
 ```
 git pull origin master
 ```
-
-  * **git push** : Pousser ! Comme pour le pull, il faut indiquer le chemin la première fois. Git va ensuite pousser vos modifications sur le serveur.
+  * **git push** : Pousser ! Après avoir ajouté vos fichiers dans a l'aide de git add et de git commit, vous pouvez pousser vos fichiers sur le serveurs. La première fois, il faut indiquer le chemin.
   
 ```
 git push --set-upstream origin master
@@ -146,35 +158,37 @@ git push --set-upstream origin master
 La routine d'usage + push :
 
 après un commit:
--> git push (de temps en temps, souvent à la fin de la journée ;).
+-> git push (de temps en temps, souvent à la fin de la journée :).
 
 ```
 
-### Fork et Pull request.
+Maintenant, plus besoin de passer par wetransfer où autre système laborieux de partage de code, vous pouvez simplement indiquer l'url de votre dépot !
 
-Pour ceux qui veulent travailler sur le repo _PA_2017-18 directement. Il faut savoir que ce tutoriel est très basique.
+### Fork et Pull request. <a name="fork"></a>
 
-**"fork"**, c'est faire dériver le repo original vers un repo qui est nous est propre et que nous pourrons modifier à notre guise. Pour cela, rendez-vous sur [_PA_2017-18](https://github.com/PratiquesAlgorithmiques/_PA_2017-18) et cliquer sur le bouton *"fork"*.
+Pour ceux qui veulent travailler sur le repo _PA_2017-18 directement. Il faut savoir que ce tutoriel est très basique et que des commandes comme **git rebase**, **git stash** vous seront utiles.
+
+**"fork"**, c'est faire dériver le repo original vers un repo qui est nous est propre et que nous pouvons modifier à notre guise. Pour cela, rendez-vous sur [_PA_2017-18](https://github.com/PratiquesAlgorithmiques/_PA_2017-18) et cliquer sur le bouton *"fork"*. Un nouveau dépot sera crée à votre nom.
 
 <img src="https://help.github.com/assets/images/help/repository/fork_button.jpg" width="500px">
 
-  * **git clone** : Elle est une commande très utile ! Elle permet de récuperer une copie exact d'un repository, plus besoin de passer par un .zip. Dans notre cas, nous cherchons à récuperer votre url fork (elle est reconnaissable car elle contient votre login), puis faire un git clone de celui ci à l'endroit où vous le souhaitez en ajoutant un nom de dossier si necessaire.
-  
+  * **git clone** : une commande très utile ! Elle permet de récuperer une copie exact d'un repository, plus besoin de passer par un .zip. Dans notre cas, nous cherchons à récuperer votre "url fork" (elle est reconnaissable car elle contient votre login), puis faire un git clone de celui ci à l'endroit où vous le souhaitez en ajoutant un nom de dossier si necessaire.
+
 <img src="./img/clone.png" width="500px">
-  
-  * **git remote add upstream [url]** : De base, il n'y a qu'une adresse lié au dépot. Il n'a donc aucune idee des changememts effectué dans l'original. Grâce à cette commande et aux commandes suivante, vous aller pouvoir suivre et mettre à jour votre dépot. Elle ajoute un lien entre le dépot et le repo de Jeff. "upstream" est une habitude personelle, vous pouvez l'appeler comme bon vous semble.
-  
+
+  * **git remote add upstream [url]** : De base, il n'y a qu'une adresse lié au dépot. Il n'a donc aucune idee des changememts effectué dans l'original et vous ne pouvez pas récuperer des mise à jours de l'original. Heureusement, grâce à cette commande et aux commandes suivantes, vous aller pouvoir suivre et garder votre dépot up to date. Elle ajoute un lien entre le dépot et le repo de Jeff. "upstream" est une habitude personelle, vous pouvez l'appeler comme bon vous semble.
+
 <img src="./img/upstream.png" width="500px">
 
-  * **git fetch upstream** : Recupere les données de upstream (implicitement, il va chercher des données dans le repo indiqué)
-  
-  * **git merge upstream/master** : Fusionne upstream dans le master, les fichiers fusionnent et se mettent à jours. Cela engendre parfois des "conflits" de version.
-  
-  * **git pull upstream master** : une autre façon de "fetch et de merge".
+  * **git fetch upstream** : Recupere les données de upstream (implicitement, il va chercher des données dans le repo indiqué)
 
-##### Effectuer une pull request.
+  * **git merge upstream/master** : Fusionne upstream dans le master, les fichiers fusionnent et se mettent à jours. Cela engendre parfois des "conflits" de version.
 
-Une fois vos modifications faites et satisfaite il vous faut **push**.
+  * **git pull upstream master** : c'est la fusion de "fetch et de merge".
+
+##### Effectuer une pull request. <a name="pullrequest"></a>
+
+Une fois vos modifications faites et satisfaite il vous faut **push** vos modifications sur le serveur.
 Ensuite, rendez-vous sur votre page et appuyer sur le button
 
 <img src="https://drupal.gatech.edu/sites/default/files/inline-images/fork7.jpg" width="500px">
@@ -183,9 +197,9 @@ Vous pouvez voir différente option et si tout vas bien, une petit coche verte a
 
 <img src="./img/request.png" width="500px">
 
-D'un coté et de l'autre, il y a la possibilié de modifier les fichiers. Cependant, il faut une communication entre le master le l'initiateur de la pull request c'est pourquoi une sorte de petit forum existe pour se décider.
+D'un coté et de l'autre, il y a la possibilié de modifier les fichiers. Il faut une communication entre le master et le l'initiateur de la pull request c'est pourquoi une sorte de petit forum existe pour se décider.
 
-### Gestion des conflits.
+### Gestion des conflits. <a name="conflit"></a>
 
 Les conflits naissent lorsqu'il y a une difference dans un meme fichier et que l'on souhaite les fusionner.
 
@@ -194,25 +208,55 @@ Nous aurons alors ceci :
 ```
 <<<< HEAD Début du conflit
 
-Code précédant la fusion
+Code version sur l'actuel
 
 ========== 
 
-Code provenant de la fusion
+Code version 2
 
->>>>> Fin
+>>>>> Fin (id du commit)
 ```
 
-Pour le résoudre, il faut effacer la partie que l'on ne souhaite pas garder et commit le changement.
+Pour le résoudre, il faut effacer la partie que l'on ne souhaite pas garder ou d'effectuer les modifications nécessaires au bon fonctionnement du code et de commit le changement.
     
-## Plusieurs versions, plusieurs branches
+## Plusieurs versions, plusieurs branches ? <a name="branche"></a>
 
-  * **git branch**
+Maintenant que nous avons vu la base, nous pouvons nous interroger sur le workflow git. Souvent il est d'usage de ne pas coder sur la branche master et de créer des branches. J'imagine que dans notre cas, chaque branche pourrait représenter une version differente de notre projets.
+
+<img src="https://i.stack.imgur.com/F00b8.png" width="500px>
+
+  * **git branch** : Permet de voir les branches existantes en local mais aussi de voir sur quelle branche nous sommes.
+    * **git branch [nomdelabranche]** : Crée une branche [nomdelabranche]
+    * **git branch -av** : Permet de voir les branches en remote (sur le serveur) -a et le dernier commit associé -v
+
+  * **git checkout** C'est le **cd**(change directory) de git. Il permet de revenir dans le temps. Mais dans notre cas, nous l'utiliserons pour changer de branche.
+    * **git checkout [nomdelabranche]** : se déplace sur la branche [nomdelabranche]
+    * **git checkout -b [nomdelabranche]** cree et de deplace sur la branche [nomdelabranche]
+
+<img src=./img/branche.png" width="500px">
+
+Il suffit ensuite de code comme d'habitude (add, commit) sur votre nouvelle branche ! Si vous souhaiter la pusher sur le serveur, il faudra lui indiquer le chemin pour que ce dernier comprenne que c'est une nouvelle branche !
+```
+git push origin [nomdelabranche]
+```
+
+## Les sous-modules <a name="submodule"></a>
+
+Dans le cas ou vous voudriez mettre plusieurs dépot dans un depot. fragmenter les dépot et d'élaborer une architecture plus organisée.
+
+Avoir plusieurs projets différents sur un seul dépot et pouvoir les récuperer individuelement ou tous ensemble.
+
+  * **git submodule add [url] nomdumodule**
   
-  * **git checkout**
+<img src="./img/module.png" width="500px">
 
-## Bonus : les sous-modules
+## Conclusion. <a name="conclusion"></a>
 
-  * **git submodule add [url]
-  
-## Conclusion.
+Je vous envoie vers les vidéos de Daniel Shiffman !
+
+[Introduction](https://youtu.be/BCQHnlnPusY)
+[Branches](https://youtu.be/oPpnCh7InLY)
+[Fork and Pull-Request](https://youtu.be/_NrSWLQsDL4)
+etc..
+
+Il est vraiment cool ! ^-^
