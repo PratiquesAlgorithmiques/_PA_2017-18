@@ -223,7 +223,7 @@ Pour le résoudre, il faut effacer la partie que l'on ne souhaite pas garder ou 
 
 Maintenant que nous avons vu la base, nous pouvons nous interroger sur le workflow git. Souvent il est d'usage de ne pas coder sur la branche master et de créer des branches. J'imagine que dans notre cas, chaque branche pourrait représenter une version differente de notre projets.
 
-<img src="https://i.stack.imgur.com/F00b8.png" width="500px>
+<img src="https://i.stack.imgur.com/F00b8.png" width="500px">
 
   * **git branch** : Permet de voir les branches existantes en local mais aussi de voir sur quelle branche nous sommes.
     * **git branch [nomdelabranche]** : Crée une branche [nomdelabranche]
@@ -233,7 +233,7 @@ Maintenant que nous avons vu la base, nous pouvons nous interroger sur le workfl
     * **git checkout [nomdelabranche]** : se déplace sur la branche [nomdelabranche]
     * **git checkout -b [nomdelabranche]** cree et de deplace sur la branche [nomdelabranche]
 
-<img src=./img/branche.png" width="500px">
+<img src="./img/branche.png" width="500px">
 
 Il suffit ensuite de code comme d'habitude (add, commit) sur votre nouvelle branche ! Si vous souhaiter la pusher sur le serveur, il faudra lui indiquer le chemin pour que ce dernier comprenne que c'est une nouvelle branche !
 ```
