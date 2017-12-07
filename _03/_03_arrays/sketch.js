@@ -6,7 +6,7 @@ function setup() {
 	monArray = ["apple", "orange", "pear", "grape", "banana", "grapefruit"];
 
 	print(monArray);
-
+	
 	print("length = " + monArray.length);
 
 
