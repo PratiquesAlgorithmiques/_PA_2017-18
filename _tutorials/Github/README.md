@@ -255,11 +255,20 @@ Avoir plusieurs projets différents sur un seul dépot et pouvoir les récuperer
 
 ## Conclusion. <a name="conclusion"></a>
 
+Voici une brève présentation de git et de github, elle est loin d'être exhaustive. (^-^)/
+C'est simplement ainsi que je vois git et son utilisation après pas mal de temps passée dessus.
+Il y a plein de subtilité dans les commandes, des paramêtres cachés.. 
+
 Je vous envoie vers les vidéos de Daniel Shiffman !
+Il est vraiment cool ! ^-^
 
 [Introduction](https://youtu.be/BCQHnlnPusY)
 [Branches](https://youtu.be/oPpnCh7InLY)
 [Fork and Pull-Request](https://youtu.be/_NrSWLQsDL4)
 etc..
 
-Il est vraiment cool ! ^-^
+[le site de git](https://git-scm.com/), la documentation y est foisonnante.
+
+[Try Git](https://try.github.io/levels/1/challenges/1), un site pour s'initier à git et github en compagnie d'Octocat.
+
+Voilà, voilà...
