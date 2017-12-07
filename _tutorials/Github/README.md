@@ -226,12 +226,15 @@ Maintenant que nous avons vu la base, nous pouvons nous interroger sur le workfl
 <img src="https://i.stack.imgur.com/F00b8.png" width="500px">
 
   * **git branch** : Permet de voir les branches existantes en local mais aussi de voir sur quelle branche nous sommes.
-    * **git branch [nomdelabranche]** : Crée une branche [nomdelabranche]
-    * **git branch -av** : Permet de voir les branches en remote (sur le serveur) -a et le dernier commit associé -v
+    * **git branch [nomdelabranche]** : Crée une branche [nomdelabranche]
+    
+    * **git branch -av** : Permet de voir les branches en remote (sur le serveur) -a et le dernier commit associé -v
 
   * **git checkout** C'est le **cd**(change directory) de git. Il permet de revenir dans le temps. Mais dans notre cas, nous l'utiliserons pour changer de branche.
-    * **git checkout [nomdelabranche]** : se déplace sur la branche [nomdelabranche]
-    * **git checkout -b [nomdelabranche]** cree et de deplace sur la branche [nomdelabranche]
+    
+    * **git checkout [nomdelabranche]** : se déplace sur la branche [nomdelabranche]
+    
+    * **git checkout -b [nomdelabranche]** cree et de deplace sur la branche [nomdelabranche]
 
 <img src="./img/branche.png" width="500px">
 
