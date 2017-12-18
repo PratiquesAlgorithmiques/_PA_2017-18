@@ -13,7 +13,6 @@ function preload() {
 
 function setup() { // quand je charge la page 
   createCanvas(windowWidth, windowHeight);
-  background(233,150,122);
   frameRate(30) // nombre d'image par seconde (vitesse d'oscillation)
   for (var i = 0; i < 100; i++) { 
 // pour une bloucle for =
@@ -39,6 +38,7 @@ function setup() { // quand je charge la page
 
 function draw() { // faire bouger les boutons
   background(191, 2, 2, 2); // background transparent => effet trainée (R,G,B,opacité)
+  // image(img, 0, 0, width, height);
   for (var i = 0; i < boutons.length; i++) {
     boutons[i].move(); // trouver l'élément I et le faire bouger 
     boutons[i].show(); // trouver l'élément I et l'afficher
