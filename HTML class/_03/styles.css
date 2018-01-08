@@ -1,0 +1,42 @@
+body {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.sidebar {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 200px;
+	height: 100vh;
+	background-color: #AAA;
+}
+
+.sidecontent {
+	margin: 20px;
+	width: 160px;
+	height: 120px;
+	background-color: #54c6be;
+
+	padding:20px;
+	box-sizing: border-box;
+
+	display: flex;							/* flex makes vertical alignment easy */
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+	margin-left: 200px;
+	width: 80vw;						/* vw = viewer width, here 80% */
+	height: 200vh;
+}
+
+.maincontent {
+	margin: 20px;
+	width: 200px;
+	height: 200px;
+	background-color: green;
+	display: inline-block;
+}
