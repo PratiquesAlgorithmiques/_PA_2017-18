@@ -10,3 +10,5 @@ var sketch2 = function(p) {
     p.rect(p.width/2 + p.random(-5, 5), p.height/2 + p.random(-5, 5),100,100);
   };
 };
+
+new p5(sketch2, 'container2'); 

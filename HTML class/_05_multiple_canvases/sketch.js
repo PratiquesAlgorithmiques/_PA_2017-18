@@ -10,3 +10,5 @@ var sketch = function(p) {
     p.ellipse(p.width/2 + p.random(-5, 5), p.height/2 + p.random(-5, 5), 200, 200);
   };
 };
+
+new p5(sketch, 'container'); 
