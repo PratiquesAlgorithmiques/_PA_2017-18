@@ -20,8 +20,14 @@ function draw() {
 	ellipse(width/2, counter, 200, 200);
 }
 
+/* AJAX */
+
 $(document).ready(function() {
 	$('.sidecontent').click(function() {
 	  $('.main').load('page2.html?cache=' + random(100000));
 	});
+
+	// $('.sidebar').click(function() {
+	//   $('.sidebar').load('sidebar2.html?cache=' + random(100000));
+	// });
 });
