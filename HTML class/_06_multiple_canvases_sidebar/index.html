@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+  <head>
+    <link rel='stylesheet' href='styles.css'/>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script>
+    <script src="sketch.js"></script>
+    <script src="sketch2.js"></script>
+  </head>
+
+  <body>
+    <div class='sidebar'>
+      <div class='sidecontent' id='id1'>
+        <p>sketch 1</p>
+      </div>
+      <div class='sidecontent' id='id2'>
+        <p>sketch 2</p>
+      </div>
+    </div>
+
+    <div id='container'></div>
+  
+    <script>
+
+      $(document).ready(function() {
+
+        $('#id1').click(function() {
+          $( '#container' ).empty();
+
+          new p5(sketch, 'container'); 
+        });
+
+        $('#id2').click(function() {
+          
+          $( '#container' ).empty();
+
+          new p5(sketch2, 'container'); 
+        });
+      });
+
+  </script>
+  </body>
+</html>
