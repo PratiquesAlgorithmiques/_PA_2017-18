@@ -39,14 +39,19 @@ function draw(){
 
 
 function keyPressed() {
-  if (song1.isPlaying() && (keyCode == LEFT_ARROW)) {
-    song1.pause();
-  } else if (keyCode == LEFT_ARROW) {
-    song1.play();
-}
-  if (song2.isPlaying() && (keyCode == RIGHT_ARROW)) {
-    song2.pause();
-  } else if (keyCode == RIGHT_ARROW) {
-    song2.play();
+  if (keyCode == LEFT_ARROW) {
+    if (song1.isPlaying()) {
+      song1.pause();
+    } else {
+      song1.play();
+    }
+  }
+
+  if (keyCode == RIGHT_ARROW) {
+    if (song2.isPlaying()) {
+      song2.pause();
+    } else {
+      song2.play();
+    }
   }
 }

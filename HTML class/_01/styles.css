@@ -1,0 +1,28 @@
+body {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	background-color: #CCC;
+}
+
+p {
+	margin-left: 20px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	color: #d74a9e;
+	font-size: 20px;
+	display: inline-block;
+}
+
+.greenparagraph {
+	color: green;
+}
+
+.blueparagraph {
+	color: blue;
+}
+
+
+span {
+	color: blue;
+}
