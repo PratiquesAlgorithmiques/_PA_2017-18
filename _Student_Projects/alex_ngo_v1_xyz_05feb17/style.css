@@ -1,0 +1,16 @@
+html, body {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#xyz_map {
+	z-index: -1;
+	position: absolute;
+	width: 480px;
+	height: 350px;;
+}
+
+#p5 {
+	position: absolute;
+}
