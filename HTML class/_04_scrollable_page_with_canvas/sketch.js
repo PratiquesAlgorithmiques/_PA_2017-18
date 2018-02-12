@@ -24,7 +24,7 @@ function draw() {
 
 $(document).ready(function() {
 	$('.sidecontent').click(function() {
-	  $('.main').load('page2.html?cache=' + random(100000));
+	  $('.main').load('page2.html');
 	});
 
 	// $('.sidebar').click(function() {
